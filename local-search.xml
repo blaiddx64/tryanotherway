@@ -1,0 +1,34 @@
+<?xml version="1.0" encoding="utf-8"?>
+<search>
+  
+  
+  
+  <entry>
+    <title>THM Bounty Hacker Write-up</title>
+    <link href="/2020/08/22/cowboyhacker/"/>
+    <url>/2020/08/22/cowboyhacker/</url>
+    
+    <content type="html"><![CDATA[<p>This post is a write-up from <a href="https://tryhackme.com/room/cowboyhacker">tryhackme Bounty Hacker room</a>.</p><p>First of all scan the machine using nmap.</p><p><img src="/img/cowboyhacker/port-scan.png" alt="port-scan"></p><p>You will get 3 open ports, 21:ftp, 22:ssh and 80:http.</p><p>The web application running on port 80 is just a chat history where some people challenge you to root the system.</p><p><img src="/img/cowboyhacker/home.png" alt="home"></p><p>The ftp running on port 21 allows anonymous login and there’s 2 interesting txt files.</p><p><img src="/img/cowboyhacker/ftp-output.png" alt="fpt-output"></p><p>Inside task.txt there’s 2 random useless instructions writed by someone called “lin”.</p><p><img src="/img/cowboyhacker/task.png" alt="task.txt"></p><p>The another one is a wordlist with some passwords. Now you have one possible user and a wordlist to brute force something.</p><p><img src="/img/cowboyhacker/passwords.png" alt="passwords"></p><p>Running a brute force on ssh you will get the credentials.</p><p><img src="/img/cowboyhacker/ssh-brute-force.png" alt="ssh-brute-force"></p><p>Now you have the user flag, let’s scale privileges.</p><p><img src="/img/cowboyhacker/user-flag.png" alt="user-flag"></p><p>You can run &#x2F;bin&#x2F;tar as root, but what could you do with this?</p><p><img src="/img/cowboyhacker/sudo.png" alt="sudo"></p><p>After some search I found how to run commands with tar, now you are root.</p><p><img src="/img/cowboyhacker/privilege-escalation.png" alt="privilege-escalation"></p><p>And now you have the root flag.</p><p><img src="/img/cowboyhacker/root-flag.png" alt="root-flag"></p><p>This was my first ctf write up, sorry anything I did wrong, thanks for read and see you space cowboy…</p><p class="note note-info">Author: <a href="https://hackerone.com/blaidd" target="_blank">blaidd</a></p>]]></content>
+    
+    
+    <categories>
+      
+      <category>CTF</category>
+      
+    </categories>
+    
+    
+    <tags>
+      
+      <tag>Write-up</tag>
+      
+      <tag>CTF</tag>
+      
+    </tags>
+    
+  </entry>
+  
+  
+  
+  
+</search>
